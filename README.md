@@ -16,13 +16,15 @@ https://github.com/danie1park/ProgrammingAssignment2.git
 ## Question 1: Empirical Comparison
 | Input File | k | m | FIFO | LRU | OPTFF |
 |---|---|---|---|---|---|
-|File1| | | | | |
-|File2| | | | | |
-|File3| | | | | |
+|example2| 4 | 65 | 38 | 38 | 29 |
+|example3| 3 | 58 | 43 | 33 | 23 |
+|example4| 6 | 55 | 45 | 45 | 36 |
 
 **Does OPTFF have the fewest misses?**
+OPTFF has the fewest misses of all the policies.
 
 **How does FIFO compare to LRU?**
+FIFO tends to do worst or equally in comparison to LRU.
 
 ## Question 2: Bad Sequence for LRU or FIFO
 **For ( k = 3 ), investigate whether there exists a request sequence for which OPTFF incurs strictly fewer misses than LRU (or FIFO).**
