@@ -81,8 +81,7 @@ def optff(k, requests):
 
                 # Citation: https://www.geeksforgeeks.org/python/max-heap-in-python/, https://www.geeksforgeeks.org/python/heap-queue-or-heapq-in-python/
                 heap = []
-                heapq.heapify(heap)
-
+                
                 # Build Heap
                 for cachedItem in cache:
                     # nextRequest is the Priority
