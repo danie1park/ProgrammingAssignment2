@@ -25,14 +25,15 @@ def main():
     # Check if m and requests match
     if len(requests) != m:
         print(f"Error: The number of requests ({len(requests)}) does not match m value ({m})")
+        return
 
     # Policies: FIFO | LRU | OPTFF
     fifo_output = fifo(k, requests)
     print(f"FIFO  : {fifo_output}")
     lru_output = lru(k, requests)
-    print(f"LRU  : {lru_output}")
+    print(f"LRU   : {lru_output}")
     optff_output = optff(k, requests)
-    print(f"OPTFF  : {optff_output}")
+    print(f"OPTFF : {optff_output}")
 
 if __name__=="__main__":
     main()
