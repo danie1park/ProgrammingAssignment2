@@ -50,7 +50,8 @@ https://github.com/danie1park/ProgrammingAssignment2.git
     python3 src/main.py tests/example2.in | diff - tests/example2.out
     ```
 **Tests**
-* Five nontrivial example files, with at least three containing at least 50 requests can be found in `tests/`.
+* Four nontrivial example files, with at least three containing at least 50 requests can be found in `tests/`.
+* Example 1 has less than 50 requests.
 
 ---
 # Questions
@@ -59,8 +60,8 @@ https://github.com/danie1park/ProgrammingAssignment2.git
 |---|---|---|---|---|---|
 |example2.in| 4 | 65 | 38 | 38 | 29 |
 |example3.in| 3 | 56 | 43 | 33 | 23 |
-|example4| 6 | 55 | 45 | 45 | 36 |
-|example5| 3 | 50 | 29 | 23 | 17 |
+|example4.in| 6 | 55 | 45 | 45 | 36 |
+|example5.in| 3 | 50 | 29 | 23 | 17 |
 
 `example1.in` was not include because m < 50.
 
