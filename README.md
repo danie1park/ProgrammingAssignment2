@@ -82,6 +82,23 @@ If you believe no such sequence exists for the policy you chose:
 
 **In either case, briefly explain your reasoning.**
 
+<u>**OPTFF incurs strictly fewer misses than LRU**<\u>:
+There exists a request sequence for which OPTFF incurs strictly fewer misses than LRU.
+
+For example:
+If $k = 3$, and $m = 8$, and the requests are $[1, 2, 3, 4, 1, 2, 3, 4]$, the miss counts would be OPTFF = 5 and LRU = 8, so OPTFF has strictly fewer misses than LRU.
+
+A cyclical request sequence with at least k+1 (4) distinct items and k = 3 causes OPTFF to have strictly fewer cache misses than LRU. LRU always evicts the least recently used item, so the cyclical pattern forces the cache to miss whenever the cache is full and a request is made. OPTFF, instead, evicts the farthest-in-future-requested item which would be the last item in cycle that was added (between 3 and 4 depending on which is requested). This allows OPTFF to always have less misses than LRU.
+
+<u>**OPTFF incurs strictly fewer misses than FIFO**<\u>:
+There exists a request sequence for which OPTFF incurs strictly fewer misses than FIFO.
+
+For example:
+If $k = 3$, and $m = 8$, and the requests are $[1, 2, 3, 4, 1, 2, 3, 4]$, the miss counts would be OPTFF = 5 and FIFO = 8, so OPTFF has strictly fewer misses than FIFO.
+
+In the same conditions given in the reasoning above, FIFO always evicts the first item in the cached order (oldest item). The cyclical pattern forces the cache to miss whenever the cache is full and a request is made. OPTFF logic follows the same reasoning as in the above reasoning.
+
+
 ## Question 3: Prove OPTFF is Optimal
 **Let OPTFF be Belady’s Farthest-in-Future algorithm.
 Let ( A ) be any offline algorithm that knows the full request sequence.
