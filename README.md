@@ -29,7 +29,7 @@ https://github.com/danie1park/ProgrammingAssignment2.git
     ```
 
 **Input format**
-* The format was done according to the 
+* The format was chosen according to the assignment requirements.
 * First line: two integers `k m` (cache capacity and number of requests).
 * Second line: `m` integer request IDs separated by spaces.
 * See the `tests/` directory for sample input files.
@@ -87,3 +87,33 @@ If you believe no such sequence exists for the policy you chose:
 Let ( A ) be any offline algorithm that knows the full request sequence.
 Prove that the number of misses of OPTFF is no larger than that of ( A ) on any fixed sequence.**
 
+Citation: Strongly inspired by Greedy Algorithm lecture slides and notes  
+
+I will solve this problem using proof by induction.  
+
+The proof is to show that OPTFF (Belady’s Farthest-in-Future, optimal offline) is optimal for the offline caching problem.  
+
+**Theorem:** OPTFF is an optimal eviction algorithm. For any request sequence, the number of cache misses by OPTFF is no larger than that of any offline algorithm ( A ).
+
+**Invariant:** There exists an optimal reduced schedule S derived from algorithm ( A ) that matches the eviction decisions of S_OPTFF​ through the first j steps.  
+
+**Base Case: j = 0**
+Prior to any requests, the cache contents of S and S_OPTFF would match. This invariant holds for j = 0.  
+
+**Inductive Step:**  
+Say there exists an optimal reduced schedule S that agrees with S_OPTFF through step j. We will then construct a new optimal schedule, S’, that agrees with S_OPTFF through j + 1.  
+
+Let d be the item requested at step j + 1.  
+* Case 1: d is already in the cache. Then neither S nor S_OPTFF need to perform an eviction. Then, S’ = S and the invariant holds.
+* Case 2: d is not in the cache. Then S and S_OPTFF both evict the same item. S’ = S still remains optimal and agrees with S_OPTFF through j + 1.
+* Case 3: d is not in the cache, and the algorithms evict different items. Let S_OPTFF evict item e, and S evict item f, e ≠ f. Then, we will construct a new schedule S’ that shares the same behavior as S except at j + 1, where it evicts e instead of f. Now, S’ agrees with S_OPTFF for the first j + 1 steps. We now argue that having f in the cache instead of e is no worse.
+
+    - Since OPTFF evicts the item whose next request is farthest in the future, the next request for f must occur before the next request for e (or perhaps e may never be requested again).
+
+    - Because of this, keeping f in the cache instead of e cannot cause S′ to incur more cache misses than S. If S needs f later, S′ already has it. If S′ later needs e, it may incur a miss there, but that miss occurs no earlier than in S.
+
+    - Therefore S′ has no more misses than S, and it remains optimal while agreeing with S_OPTFF for one more step.  
+
+Since we can extend the invariant from j to j + 1, the invariant holds for all steps by induction. Therefore, there exists an optimal schedule that makes exactly the same eviction decisions as OPTFF. This means OPTFF incurs no more cache misses than any other algorithm.  
+
+Thus, OPTFF is an optimal eviction algorithm.
