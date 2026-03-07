@@ -88,7 +88,7 @@ There exists a request sequence for which OPTFF incurs strictly fewer misses tha
 For example:  
 If $k = 3$, and $m = 8$, and the requests are $[1, 2, 3, 4, 1, 2, 3, 4]$, the miss counts would be OPTFF = 5 and LRU = 8, so OPTFF has strictly fewer misses than LRU.
 
-A cyclical request sequence with at least k+1 (4) distinct items and k = 3 causes OPTFF to have strictly fewer cache misses than LRU. LRU always evicts the least recently used item, so the cyclical pattern forces the cache to miss whenever the cache is full and a request is made. OPTFF, instead, evicts the farthest-in-future-requested item which would be the last item in cycle that was added (between 3 and 4 depending on which is requested). This allows OPTFF to always have less misses than LRU.
+A cyclical request sequence with at least k+1 (4) distinct items and k = 3 causes OPTFF to have strictly fewer cache misses than LRU. LRU always evicts the least recently used item, so the cyclical pattern forces the cache to miss whenever the cache is full and a request is made. OPTFF, instead, evicts the farthest-in-future-requested item which would be the last item in cycle that was added (between 3 and 4 depending on which is requested). This allows OPTFF to always have fewer misses than LRU.
 
 **OPTFF incurs strictly fewer misses than FIFO:**  
 There exists a request sequence for which OPTFF incurs strictly fewer misses than FIFO.
